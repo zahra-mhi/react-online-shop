@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
 import { shopContext } from "../context/shopContext";
-import './nav.css';
+import "./nav.css";
 
 export const Nav = () => {
   const { cart } = useContext(shopContext);
@@ -25,7 +25,9 @@ export const Nav = () => {
           <li className="nav-item">
             <Link to="/cart" className="nav-link">
               <FontAwesomeIcon icon={faShoppingCart} />
-              <span className="cart-items-count">{cartCount}</span>
+              {cartCount > 0 && (
+                <span className="cart-items-count">{cartCount}</span>
+              )}
             </Link>
           </li>
         </ul>
