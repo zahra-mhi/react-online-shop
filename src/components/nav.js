@@ -6,13 +6,13 @@ import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
 export const Nav = () => {
   return (
     <React.Fragment>
-      <nav class="navbar bg-light">
-        <h1 class="navbar-brand">Navbar</h1>
-        <ul class="nav mx-2">
-          <li class="nav-item">
+      <nav className="navbar bg-light">
+        <h1 className="navbar-brand">Navbar</h1>
+        <ul className="nav mx-2">
+          <li className="nav-item">
             <Link to='/' className="nav-link">shop</Link>
           </li>
-          <li class="nav-item">
+          <li className="nav-item">
             <Link to='/cart' className="nav-link"><FontAwesomeIcon icon={faShoppingCart} /></Link>
           </li>
         </ul>

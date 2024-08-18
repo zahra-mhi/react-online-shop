@@ -4,7 +4,7 @@ import doll from "../assets/doll.jpg";
 import tshirt from "../assets/tshirt.jpg";
 
 
-export const Products = [
+export const PRODUCTS = [
   {
     id: 1,
     productName: "shoes",

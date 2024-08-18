@@ -1,17 +1,34 @@
+import { useContext } from "react";
+import { shopContext } from "../../context/shopContext";
 
 export const Product = (props) => {
-  return (
+  const { id, productName, price, productImage } = props.data;
+  const { cart, addToCart, removeFromCart } = useContext(shopContext);
+  const isInCart = cart?.some((item) => item.id === id)
 
-        <div className="col-4">
-          <div className="m-3">
-            <img className="w-100" src={props.data.productImage} alt="" />
-            <h3>{props.data.productName}</h3>
-            <h6>price: {props.data.price}$</h6>
-            <button className="btn btn-sm btn-primary">+</button>
-            <span className="mx-1">0</span>
-            <button className="btn btn-sm btn-primary">-</button>
-          </div>
-        </div>
-    
+  return (
+    <div className="col-4">
+      <div className="m-3">
+        <img className="w-100" src={productImage} />
+        <h3>{productName}</h3>
+        <h6>price: {price}$</h6>
+        <button
+          className="btn btn-sm btn-primary"
+          onClick={() => addToCart(id)}
+        >
+          +
+        </button>
+        <span className="mx-1">
+          {cart.find((item) => item.id === id)?.count}
+        </span>
+        { isInCart  &&    <button
+          className="btn btn-sm btn-primary"
+          onClick={() => removeFromCart(id)}
+        >
+          -
+        </button>}  
+     
+      </div>
+    </div>
   );
 };
